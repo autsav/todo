@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/oenilnju/todo1.siyaexchange.com/
+    - export DEPLOYPATH=/home/oenilnju/todo1.siyaexchange.com/todo
     - /bin/cp -R * $DEPLOYPATH
     
