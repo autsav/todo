@@ -20,8 +20,9 @@ use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 // });
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', 'App\Http\Controllers\HomeController@index');
 
-Route::get('/', 'App\Http\Controllers\TasksController@index');
+Route::get('/loggedin', 'App\Http\Controllers\TasksController@index');
 
 
 Auth::routes(['verify' => true]);
