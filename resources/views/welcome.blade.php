@@ -12,7 +12,7 @@
                     <th colspan="2">Tasks</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                 @foreach($user->tasks as $task)
                     <tr>
                         <td>

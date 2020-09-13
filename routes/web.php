@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,20 +18,24 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 // Auth::routes();
-
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', 'App\Http\Controllers\TasksController@index');
 
-Auth::routes();
 
-Route::get('/task', 'App\Http\Controllers\TasksController@add');
-Route::post('/task','App\Http\Controllers\TasksController@create');
+Auth::routes(['verify' => true]);
 
-Route::get('/task/{task}','App\Http\Controllers\TasksController@edit');
-Route::post('/task/{task}','App\Http\Controllers\TasksController@update');
+Route::middleware(['auth','verified'])->group(function() {
+    Route::get('/task', 'App\Http\Controllers\TasksController@add');
+    Route::post('/task','App\Http\Controllers\TasksController@create');
+    
+    Route::get('/task/{task}','App\Http\Controllers\TasksController@edit');
+    Route::post('/task/{task}','App\Http\Controllers\TasksController@update');
+
+});
+
+
 
 
 
