@@ -24,9 +24,11 @@ class TasksController extends Controller
     public function create(Request $request)
     {   
         $this->validate($request,[
+            'title' => 'required',
             'description' => 'required'
         ]);
         $task = new Task();
+        $task->title = $request->title;
         $task->description = $request->description;
         $task->user_id = Auth::id();
         $task->save();
@@ -45,15 +47,19 @@ class TasksController extends Controller
     }
     public function update(Request $request, Task $task)
     {   
-        $this->validate($request,[
-            'description' =>'required'
-        ]);
+        
+        
         if(isset($_POST['delete'])){
+           
             $task->delete();
             return redirect('/');
         }
         else
-        {
+        {   
+            $this->validate($request,[
+            'description' =>'required'
+        ]);
+            $task->title = $request->title;
             $task->description = $request->description;
             $task->save();
             return redirect('/');

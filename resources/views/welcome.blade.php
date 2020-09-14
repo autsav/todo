@@ -9,12 +9,17 @@
                 <a href="/task" class="btn btn-primary">Add new Task</a>
                 <table class="table mt-4">
                 <thead><tr>
-                    <th colspan="2">Tasks</th>
+                    <th colspan="1">Title</th>
+                    <th colspan="1">Description</th>
+                    <th colspan="1">Action</th>
                 </tr>
                 </thead>
                 <tbody> 
                 @foreach($user->tasks as $task)
                     <tr>
+                        <td>
+                        {{$task->title}}
+                        </td>
                         <td>
                             {{$task->description}}
                         </td>
@@ -38,10 +43,10 @@
                     <h3 class="text-white">You need to log in.
     
                     <a href="/login">Click here to login</a></h3>
-                </div>
+                </div> -->
                 <!-- <div class="w-100 h-100 d-flex justify-content-center align-items-center">
                     <h1>To do App</h1>
-                </div> -->
+                </div>
             @endif
     </div>
 </div>

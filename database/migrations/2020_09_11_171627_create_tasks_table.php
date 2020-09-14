@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description');
+            $table->longText('description')->change();
             $table->integer('user_id')->unsigned()->index();// we store this because it is a foreign key from users table
             $table->timestamps();
         });

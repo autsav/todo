@@ -6,6 +6,11 @@
 <h1 class="text-white">Edit the Task</h1>
 
 <form method="POST" action="/task/{{ $task->id }}">
+<div>
+        <label class="text-black">Task title</label>    
+        <input type="text" class="form-control" name="title" id="title">
+</div>
+
 <div class="form-group">
     <textarea name="description" class="form-control" id="" cols="30" rows="10">{{ $task->description }}</textarea>
     @if ($errors->has('description'))
