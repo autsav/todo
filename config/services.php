@@ -30,10 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'google' => [
-        'client_id' => '958386804172-bletf9jbpre7gojj069b88v7a9j5mhkn.apps.googleusercontent.com',
-        'client_secret' => 'jk8pt-gLLZ3kTD4i-YZ6cPoZ',
-        'redirect' => 'http://localhost:8000/auth/google/callback',
+        'client_id' => '661812594988-gthdj2a36g8h8pjoq9s1tjas8p4e82pl.apps.googleusercontent.com',
+        'client_secret' => 'agJL3oqNYxda-EuWXC7vgnfO',
+        'redirect' => 'http://localhost:8000/callback/google',
     ],
-
 
 ];

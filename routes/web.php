@@ -20,12 +20,21 @@ use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 // });
 // Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Auth::routes(['verify' => true]);
+
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/loggedin', 'App\Http\Controllers\TasksController@index');
 
+// Route::get('auth/google','App\Http\Controllers\Googlecontroller@redirectToGoogle');
+// Route::get('auth/google/callback','App\Http\Controllers\Googlecontroller@handleGoogleCallback');
 
-Auth::routes(['verify' => true]);
+Route::get('/auth/redirect/{provider}', 'App\Http\Controllers\GoogleLoginController@redirect');
+ Route::get('/callback/{provider}', 'App\Http\Controllers\GoogleLoginController@callback');
+
+  
 
 Route::middleware(['auth','verified'])->group(function() {
     Route::get('/task', 'App\Http\Controllers\TasksController@add');
